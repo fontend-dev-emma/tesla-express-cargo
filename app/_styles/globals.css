@@ -1,0 +1,486 @@
+/* @import "tailwindcss"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* git config --global http.postBuffer 524288000 */
+/* rm -rf .next */
+
+.mask-image-gradient {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-composite: destination-in;
+
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  mask-composite: intersect;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 25s linear infinite;
+}
+
+/* rm -rf .next node_modules */
+/* oichok745@gmail.com */
+
+/* git add . */
+/* git commit -m "Initial commit" */
+/* git push */
+
+.hero {
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.divide-dashed > :not([hidden]) ~ :not([hidden]) {
+  border-style: dashed;
+}
+
+/* /////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////// */
+body {
+  top: 0px !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+.goog-te-banner {
+  display: none !important;
+}
+
+.goog-tooltip {
+  display: none !important;
+}
+
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+iframe[id^=":"] {
+  display: none !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+html,
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* FOR INVOICE */
+
+@layer utilities {
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html,
+    body {
+      background: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    body * {
+      visibility: hidden;
+    }
+
+    #invoice,
+    #invoice * {
+      visibility: visible;
+    }
+
+    #invoice {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+    }
+
+    @page {
+      margin: 0;
+    }
+
+    button,
+    .no-print {
+      display: none !important;
+    }
+  }
+}
+
+/* =========================================== */
+/* React Quill mail editor */
+/* =========================================== */
+.message-editor-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-editor {
+  display: flex;
+  flex-direction: column;
+  background: #101318;
+}
+
+.message-editor .ql-container {
+  font-size: 14px;
+  border: none;
+  flex: 1;
+  background: #101318;
+  border: 1px solid #343840;
+}
+
+.message-editor .ql-editor {
+  min-height: 200px;
+  padding: 1rem;
+  color: #dfe8f1;
+  background: #22272d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (min-width: 640px) {
+  .message-editor .ql-editor {
+    min-height: 280px;
+  }
+}
+
+.message-editor .ql-editor.ql-blank::before {
+  color: #d1d5db;
+  font-style: normal;
+}
+
+.message-editor .ql-toolbar {
+  border: none;
+  border-bottom: 1px solid #2a2b2e;
+  background: #101318;
+  padding: 0.75rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .message-editor .ql-toolbar {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-stroke {
+  stroke: #6b7280;
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-fill,
+.message-editor .ql-toolbar.ql-snow .ql-stroke.ql-fill {
+  fill: #6b7280;
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-picker-label {
+  color: #bac9e7;
+}
+
+.message-editor .ql-toolbar.ql-snow button:hover .ql-stroke,
+.message-editor .ql-toolbar.ql-snow button.ql-active .ql-stroke,
+.message-editor .ql-toolbar.ql-snow button.ql-active .ql-fill,
+.message-editor .ql-toolbar.ql-snow button:hover .ql-fill {
+  stroke: #3b82f6;
+  fill: #3b82f6;
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-picker-options {
+  background: #25272b;
+  border: 1px solid #343840;
+  border-radius: 0.5rem;
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-picker-item {
+  color: #d2d6de;
+}
+
+.message-editor .ql-toolbar.ql-snow .ql-picker-item.ql-selected,
+.message-editor .ql-toolbar.ql-snow .ql-picker-item:hover {
+  color: #3b82f6;
+}
+
+@media (max-width: 639px) {
+  .message-editor .ql-toolbar {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .message-editor .ql-toolbar .ql-formats {
+    margin-right: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .message-editor .ql-toolbar button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .message-editor .ql-toolbar button svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* map styles  */
+.pulse-marker {
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* active using map class */
+.maplibregl-map {
+  font-family: inherit;
+}
+
+/* Control styling */
+.maplibregl-ctrl-group {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.maplibregl-ctrl-group button {
+  background-color: #1e293b !important;
+  color: #14b8a6 !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background-color: #334155 !important;
+}
+
+.maplibregl-ctrl-group button:last-child {
+  border-bottom: none !important;
+}
+
+/* Attribution styling */
+.maplibregl-ctrl-attrib {
+  background: rgba(30, 41, 59, 0.9) !important;
+  color: #94a3b8 !important;
+  font-size: 11px !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #14b8a6 !important;
+}
+
+.premium-popup .maplibregl-popup-content {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid #334155;
+}
+
+.premium-popup .maplibregl-popup-tip {
+  border-top-color: #1e293b;
+}
+
+.premium-popup .maplibregl-popup-close-button {
+  color: #94a3b8;
+  font-size: 20px;
+  padding: 8px 12px;
+}
+
+.premium-popup .maplibregl-popup-close-button:hover {
+  color: #14b8a6;
+  background: transparent;
+}
+
+.pulse-marker-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #14b8a6;
+  background: rgba(20, 184, 166, 0.1);
+  animation: pulse-expand 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-ring-1 {
+  width: 70px;
+  height: 70px;
+  animation-delay: 0s;
+}
+
+.pulse-ring-2 {
+  width: 50px;
+  height: 50px;
+  animation-delay: 0.6s;
+}
+
+.pulse-marker-core {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  border-radius: 50%;
+  border: 3px solid #5eead4;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2), 0 4px 20px rgba(20, 184, 166, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.pulse-marker-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes pulse-expand {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 640px) {
+  .pulse-marker-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pulse-ring-1 {
+    width: 55px;
+    height: 55px;
+  }
+
+  .pulse-ring-2 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pulse-marker-core {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pulse-marker-inner {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Buy a Tesla page styles */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

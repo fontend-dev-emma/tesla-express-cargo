@@ -9,14 +9,40 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sendinblue/client": "^3.3.1",
+    "@supabase/storage-js": "^2.89.0",
+    "@supabase/supabase-js": "^2.89.0",
+    "@swc/helpers": "^0.5.18",
+    "@tanstack/react-query": "^5.90.16",
+    "aos": "^2.3.4",
+    "bcryptjs": "^3.0.3",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.23.24",
+    "html2pdf.js": "^0.12.1",
+    "jsonwebtoken": "^9.0.3",
+    "leaflet": "^1.9.4",
+    "libphonenumber-js": "^1.12.33",
+    "lucide-react": "^0.546.0",
+    "maplibre-gl": "^5.15.0",
     "next": "16.0.10",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-countup": "^6.5.3",
+    "react-dom": "19.2.1",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-leaflet": "^5.0.0",
+    "react-map-gl": "^8.1.0",
+    "react-quill-new": "^3.7.0",
+    "sharp": "^0.34.5",
+    "uri-js": "^4.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.23",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
-    "tailwindcss": "^4"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
   }
 }

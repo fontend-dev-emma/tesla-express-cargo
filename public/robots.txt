@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tesla-express-cargo.com/sitemap.xml
