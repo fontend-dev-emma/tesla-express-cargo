@@ -6,10 +6,15 @@ function Hero() {
   return (
     <section className="relative  min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
-        <video autoPlay loop muted playsInline className=" w-full h-full object-cover brightness-75">
-          <source src="tesla-express-cargo-hero-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video
+          src="tesla-express-cargo-hero-video.mp4"
+          type="video/mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className=" w-full h-full object-cover brightness-75"
+        ></video>
 
         <div className="absolute inset-0 bg-black/50"></div>
       </div>

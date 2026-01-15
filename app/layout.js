@@ -24,7 +24,7 @@ export const metadata = {
     siteName: "Tesla Express Cargo",
     images: [
       {
-        url: "/new-logo.png",
+        url: "/tesla-express-cargo-favicon.png",
         width: 1200,
         height: 630,
         alt: "Tesla Express Cargo preview",
@@ -34,8 +34,8 @@ export const metadata = {
     type: "website",
   },
   icons: {
-    icon: "/new-favicon.png",
-    apple: "/new-favicon.png",
+    icon: "/tesla-express-cargo-favicon.png",
+    apple: "/tesla-express-cargo-favicon.png",
   },
 };
 
