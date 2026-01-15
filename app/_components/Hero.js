@@ -7,7 +7,7 @@ function Hero() {
     <section className="relative  min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
         <video
-          src="tesla-express-cargo-hero-video.mp4"
+          src="tesla-express-cargo-hero-video.MP4"
           type="video/mp4"
           autoPlay
           loop
