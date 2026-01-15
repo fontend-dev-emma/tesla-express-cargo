@@ -258,130 +258,141 @@ export const cars = [
   {
     id: 1,
     model: "Model S Plaid",
-    description: "Ultra-high-performance electric sedan with record-breaking acceleration and premium comfort.",
+    description: "Tesla’s fastest production sedan featuring a tri-motor setup, advanced thermal management, and a refined luxury interior.",
     price: 89990,
     image: "/model-s-1.png",
     badge: "Top Performance",
-    features: ["396 mi range", "1.99s 0-60mph", "Tri Motor", "Autopilot"],
+    features: ["396 mi range (EPA)", "1.99s 0–60 mph", "Tri-Motor AWD", "Full Self-Driving Capable"],
   },
   {
     id: 2,
-    model: "/model-s-2.png",
-    description: "Luxury electric sedan offering maximum range and smooth driving experience.",
+    model: "Model S Long Range",
+    description: "Premium electric sedan optimized for long-distance travel with smooth ride quality and cutting-edge infotainment.",
     price: 74990,
-    image: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=900&q=80",
-    features: ["405 mi range", "3.1s 0-60mph", "Premium Interior", "Autopilot"],
+    image: "/model-s-2.png",
+    features: ["405 mi range (EPA)", "3.1s 0–60 mph", "Premium Interior", "Autopilot"],
   },
   {
     id: 3,
     model: "Model 3 Performance",
-    description: "Sport-focused compact sedan with aggressive acceleration and sharp handling.",
+    description: "High-performance compact sedan engineered for speed, precision handling, and everyday usability.",
     price: 54990,
     image: "/model-3-1.png",
     badge: "Popular",
-    features: ["315 mi range", "3.1s 0-60mph", "Track Mode", "Glass Roof"],
+    features: ["315 mi range (EPA)", "3.1s 0–60 mph", "Track Mode", "Performance Brakes"],
   },
   {
     id: 4,
     model: "Model 3 Long Range",
-    description: "Efficient daily driver offering long range and advanced safety tech.",
+    description: "Efficient and affordable electric sedan offering excellent range, safety, and smart technology.",
     price: 47240,
     image: "/model-3-2.png",
-    features: ["358 mi range", "4.2s 0-60mph", "5-Star Safety", "Autopilot"],
+    features: ["358 mi range (EPA)", "4.2s 0–60 mph", "Dual Motor AWD", "5-Star Safety Rating"],
   },
   {
     id: 5,
     model: "Model Y Performance",
-    description: "Electric SUV combining speed, cargo space, and modern design.",
+    description: "Compact electric SUV delivering strong acceleration, versatile cargo space, and sporty styling.",
     price: 56990,
     image: "/model-y-1.png",
-    features: ["303 mi range", "3.5s 0-60mph", "AWD", "Panoramic Roof"],
+    features: ["303 mi range (EPA)", "3.5s 0–60 mph", "Performance AWD", "Panoramic Glass Roof"],
   },
   {
     id: 6,
     model: "Model Y Long Range",
-    description: "Tesla’s best-selling SUV with excellent range and everyday practicality.",
+    description: "Tesla’s best-selling SUV built for families, road trips, and everyday convenience.",
     price: 47740,
     image: "/model-y-2.png",
     badge: "Best Seller",
-    features: ["330 mi range", "4.8s 0-60mph", "Cargo Space", "Autopilot"],
+    features: ["330 mi range (EPA)", "4.8s 0–60 mph", "Large Cargo Capacity", "Autopilot"],
   },
   {
     id: 7,
     model: "Model X Plaid",
-    description: "Luxury electric SUV with falcon-wing doors and extreme performance.",
+    description: "Luxury electric SUV combining supercar acceleration with advanced comfort and iconic falcon-wing doors.",
     price: 94990,
     image: "/model-x-1.png",
     badge: "Premium",
-    features: ["333 mi range", "2.5s 0-60mph", "Falcon Doors", "7 Seats"],
+    features: ["333 mi range (EPA)", "2.5s 0–60 mph", "Falcon Wing Doors", "Up to 7 Seats"],
   },
   {
     id: 8,
     model: "Model X Long Range",
-    description: "Spacious and safe SUV designed for families and long-distance travel.",
+    description: "Spacious and technologically advanced SUV designed for long-distance comfort and family travel.",
     price: 79990,
     image: "/model-x-2.png",
-    features: ["348 mi range", "3.8s 0-60mph", "6 Seats", "Autopilot"],
+    features: ["348 mi range (EPA)", "3.8s 0–60 mph", "6-Seat Configuration", "Autopilot"],
   },
   {
     id: 9,
     model: "Cybertruck AWD",
-    description: "Futuristic electric pickup built with stainless steel exoskeleton.",
+    description: "Electric pickup truck built with a stainless-steel exoskeleton for durability and futuristic design.",
     price: 60990,
     image: "/cyber-truck-1.png",
     badge: "New",
-    features: ["340+ mi range", "4.1s 0-60mph", "Exoskeleton", "Adaptive Air"],
+    features: ["340+ mi range", "4.1s 0–60 mph", "Stainless Steel Body", "Adaptive Air Suspension"],
   },
   {
     id: 10,
-    model: "Cybertruck Tri Motor",
-    description: "Top-tier Cybertruck with maximum towing power and acceleration.",
+    model: "Cybertruck Tri-Motor",
+    description: "High-end Cybertruck variant delivering maximum towing capacity, range, and performance.",
     price: 79990,
     image: "/cyber-truck-2.png",
-    features: ["500+ mi range", "2.9s 0-60mph", "14,000 lbs towing", "AWD"],
+    features: ["500+ mi range", "2.9s 0–60 mph", "14,000 lbs Towing", "Tri-Motor AWD"],
   },
   {
     id: 11,
     model: "Tesla Roadster",
-    description: "Electric hypercar redefining speed, range, and performance.",
+    description: "Next-generation electric supercar pushing the limits of acceleration, speed, and engineering.",
     price: 200000,
     image: "/tesla-roadster-1.png",
     badge: "Coming Soon",
-    features: ["620 mi range", "1.9s 0-60mph", "250+ mph", "Convertible"],
+    features: ["620 mi range (est.)", "1.9s 0–60 mph", "250+ mph Top Speed", "Removable Glass Roof"],
   },
-  // {
-  //   id: 12,
-  //   model: "Tesla Semi",
-  //   description: "All-electric commercial truck designed for long-haul efficiency.",
-  //   price: 180000,
-  //   image: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=900&q=80",
-  //   badge: "Commercial",
-  //   features: ["500 mi range", "80,000 lbs load", "Autopilot", "Fast Charging"],
-  // },
-  // {
-  //   id: 13,
-  //   model: "Tesla Semi 300",
-  //   description: "Short-haul electric semi for regional transport and logistics.",
-  //   price: 150000,
-  //   image: "https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?w=900&q=80",
-  //   features: ["300 mi range", "Heavy Duty", "Autopilot", "Fleet Ready"],
-  // },
-  // {
-  //   id: 14,
-  //   model: "Tesla Model 2 (Concept)",
-  //   description: "Affordable compact electric vehicle aimed at mass adoption.",
-  //   price: 25000,
-  //   image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1b?w=900&q=80",
-  //   badge: "Concept",
-  //   features: ["250+ mi range", "Compact Design", "Urban Focus", "Autopilot"],
-  // },
-  // {
-  //   id: 15,
-  //   model: "Tesla Robotaxi",
-  //   description: "Fully autonomous electric vehicle designed for ride-hailing services.",
-  //   price: 30000,
-  //   image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=900&q=80",
-  //   badge: "Autonomous",
-  //   features: ["No Steering Wheel", "Full Self Driving", "AI Powered", "EV Platform"],
-  // },
+  {
+    id: 12,
+    model: "Tesla Semi",
+    description: "All-electric commercial truck engineered for long-haul efficiency, safety, and reduced operating costs.",
+    price: 180000,
+    image: "/tesla-semi-2.png",
+    badge: "Commercial",
+    features: ["500 mi range (est.)", "80,000 lbs GVWR", "Enhanced Autopilot", "Megacharger Support"],
+  },
+  {
+    id: 13,
+    model: "Tesla Semi 300",
+    description: "Regional and short-haul electric semi optimized for logistics, ports, and distribution centers.",
+    price: 150000,
+    image: "/tesla-semi-1.png",
+    features: ["300 mi range (est.)", "Heavy-Duty Electric Drivetrain", "Fleet Monitoring", "Fast Charging"],
+  },
+
+  {
+    id: 14,
+    model: "Tesla Robotaxi",
+    description: "Purpose-built autonomous electric vehicle designed for large-scale ride-hailing networks.",
+    price: 30000,
+    image: "/tesla-robotaxi.png",
+    badge: "Autonomous",
+    features: ["No Steering Wheel", "Full Self-Driving", "AI-Powered Navigation", "Low Operating Cost"],
+  },
 ];
+
+export function generateReference() {
+  const date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+  return `REF-${date}-${random}`;
+}
+
+export function getUniqueReceivers(allShipments) {
+  const seen = new Set();
+
+  return allShipments
+    ?.filter((shipment) => {
+      const key = `${shipment.receiverName}|${shipment.receiverEmail}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .map(({ receiverName, receiverEmail }) => ({ receiverName, receiverEmail }));
+}

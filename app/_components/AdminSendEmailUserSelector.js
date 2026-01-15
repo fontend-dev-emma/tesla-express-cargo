@@ -3,9 +3,9 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-function AdminSendEmailUserSelector({ users, selectedUserName, onSelect }) {
+function AdminSendEmailUserSelector({ users, selectedUserEmail, onSelect }) {
   const [isOpen, setIsOpen] = useState(false);
-  const selectedUser = users?.find((u) => u.receiverName === selectedUserName);
+  const selectedUser = users?.find((u) => u.receiverEmail === selectedUserEmail);
   const username = `${selectedUser?.receiverName}`;
 
   return (
@@ -20,11 +20,11 @@ function AdminSendEmailUserSelector({ users, selectedUserName, onSelect }) {
 
       {isOpen && (
         <div className="absolute top-full left-0 right-0 mt-2 bg-black border border-gray-600 rounded-lg shadow-lg z-20 max-h-60 overflow-y-auto">
-          {users.map((s) => (
+          {users?.map((s) => (
             <button
-              key={s.trackingNumber}
+              key={s.receiverEmail}
               onClick={() => {
-                onSelect(s.receiverName);
+                onSelect(s.receiverEmail);
                 setIsOpen(false);
               }}
               className="w-full px-3 sm:px-4 py-2.5 text-left text-sm hover:bg-white/5 transition-colors border-b border-gray-600 last:border-b-0 text-gray-200"

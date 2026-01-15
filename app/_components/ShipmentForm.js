@@ -9,6 +9,7 @@ import { Calendar, DollarSign, Mail, MapPin, Package, Phone, Truck, User, Weight
 import { uploadShipmentImage } from "../_lib/data-service";
 import { createShipment } from "../_lib/actions";
 import toast from "react-hot-toast";
+import { generateReference } from "../_utils/helpers";
 
 function ShipmentForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +38,7 @@ function ShipmentForm() {
     try {
       if (!file) {
         toast.error("Please select an image file.");
+        setIsLoading(false);
         return;
       }
 
@@ -47,9 +49,31 @@ function ShipmentForm() {
         return;
       }
 
-      const shipmentData = { ...formData, imageUrl, filePath };
+      const reference = generateReference();
 
-      await createShipment(shipmentData);
+      const shipmentData = { ...formData, imageUrl, filePath, reference };
+
+      const result = await createShipment(shipmentData);
+
+      if (!result.success) {
+        toast.error("Failed to register this shipment!");
+        setIsLoading(false);
+        return;
+      }
+
+      if (result.success) {
+        const emailResponse = await fetch("/api/send-tracking", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reference: reference }),
+        });
+
+        if (!emailResponse.ok) {
+          toast.error("Something wen't wrong!");
+          setIsLoading(false);
+          return;
+        }
+      }
 
       toast.success("Shipment created successfully!");
 
@@ -95,7 +119,7 @@ function ShipmentForm() {
     { value: "air", label: "Air" },
     { value: "express", label: "Express" },
     { value: "sea", label: "Sea" },
-    { value: "road", label: "Road" },
+    { value: "land", label: "Land" },
   ];
 
   const statusOptions = [

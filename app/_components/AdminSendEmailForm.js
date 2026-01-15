@@ -4,7 +4,7 @@ import { Mail, X } from "lucide-react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAllShipments } from "../_queryHooks/useAllShipments";
-import { getFirstName } from "../_utils/helpers";
+import { getFirstName, getUniqueReceivers } from "../_utils/helpers";
 import AdminSendEmailFormActions from "./AdminSendEmailFormActions";
 import AdminSendEmailInputField from "./AdminSendEmailInputField";
 import AdminSendEmailMessageEditor from "./AdminSendEmailMessageEditor";
@@ -14,13 +14,18 @@ function AdminSendEmailForm() {
   const { allShipments } = useAllShipments();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedUserName, setSelectedUserName] = useState("");
+  const [selectedUserEmail, setSelectedUserEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const selectedUser = allShipments?.find((u) => u.receiverName === selectedUserName);
+  const uniqueReceivers = getUniqueReceivers(allShipments);
+  console.log(uniqueReceivers);
+
+  const selectedUser = uniqueReceivers?.find((u) => u.receiverEmail === selectedUserEmail);
 
   const firstnName = getFirstName(selectedUser?.receiverName);
+
+  console.log(selectedUser?.receiverEmail, subject, message);
 
   async function handleSubmit() {
     if (!selectedUser) {
@@ -52,7 +57,7 @@ function AdminSendEmailForm() {
 
       if (res.ok) {
         toast.success(`Message successfully sent to ${firstnName}.`);
-        setSelectedUserName("");
+        setSelectedUserEmail("");
         setSubject("");
         setMessage("");
       } else {
@@ -81,7 +86,7 @@ function AdminSendEmailForm() {
           <div className="space-y-5 sm:space-y-6">
             <div>
               <label className="mb-2 block text-xs sm:text-sm font-semibold text-gray-400">Select Recipient</label>
-              <AdminSendEmailUserSelector users={allShipments} selectedUserName={selectedUserName} onSelect={setSelectedUserName} />
+              <AdminSendEmailUserSelector users={uniqueReceivers} selectedUserEmail={selectedUserEmail} onSelect={setSelectedUserEmail} />
             </div>
 
             <AdminSendEmailInputField

@@ -46,15 +46,15 @@ function TeslaShowroomHomePreview() {
 
     {
       id: 4,
-      model: "Model X",
-      description: "The safest and quickest SUV featuring falcon wing doors and exceptional versatility for families.",
-      price: 79990,
-      image: "/model-x-2.png",
-      badge: "Premium",
+      model: "Tesla Robotaxi",
+      description: "Fully autonomous electric vehicle designed for ride-hailing, optimized for safety, efficiency, and zero-driver operation.",
+      price: 30000,
+      image: "/tesla-robotaxi.png",
+      badge: "Autonomous",
       stats: [
-        { value: "348mi", label: "Range" },
-        { value: "3.8s", label: "0-60mph" },
-        { value: "7", label: "Seats" },
+        { value: "FSD", label: "Autonomy" },
+        { value: "AI-Driven", label: "Navigation" },
+        { value: "4", label: "Passengers" },
       ],
     },
   ];

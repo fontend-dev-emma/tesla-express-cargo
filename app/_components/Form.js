@@ -30,20 +30,27 @@ function Form() {
     try {
       setIsLoading(true);
 
-      await createServiceRequest(newFormData);
+      const res = await createServiceRequest(newFormData);
 
-      await fetch("/api/service-requests", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newFormData),
-      });
+      if (!res.success) {
+        toast.error("Failed to send. Try again!");
+        setIsLoading(false);
+        return;
+      } else {
+        await fetch("/api/service-requests", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newFormData),
+        });
+      }
 
       toast.success("Message sent!");
       e.target.reset();
     } catch (err) {
       toast.error("Failed to send. Try again!");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }
 
   return (
@@ -73,11 +80,18 @@ function Form() {
 
         <button
           type="submit"
-          className="bg-accent-600  transition-colors duration-300 ease-in-out 
-               hover:bg-accent-700 mt-4 sm:mt-4 text-[0.8rem] sm:text-[0.95rem] text-primary-50
-       px-6 py-2 sm:py-2  rounded-full lg:mt-8 lg:px-10 lg:text-[1rem] col-span-2"
+          disabled={isLoading}
+          className={`col-span-2 mt-4 lg:mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-2 sm:py-2.5 lg:px-10 text-[0.8rem] sm:text-[0.95rem] lg:text-[1rem] font-semibold tracking-wide text-primary-50 bg-accent-600 shadow-md transition-all duration-300 ease-in-out hover:bg-accent-700 hover:shadow-lg active:scale-[0.98] disabled:bg-accent-600/60 disabled:cursor-not-allowed disabled:shadow-none
+  `}
         >
-          {isLoading ? <MiniSpinner /> : "Submit Now"}
+          {isLoading ? (
+            <>
+              <MiniSpinner />
+              <span className="whitespace-nowrap">Submittig...</span>
+            </>
+          ) : (
+            <span className="whitespace-nowrap">Submit Now</span>
+          )}
         </button>
       </div>
     </form>

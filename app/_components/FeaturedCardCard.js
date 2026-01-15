@@ -57,7 +57,7 @@ function FeaturedCardCard({ car }) {
 
           <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-xs text-green-400 font-medium">Available Now</span>
+            <span className="text-xs text-green-400 font-medium whitespace-nowrap">Available Now</span>
           </div>
         </div>
       </div>

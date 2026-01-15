@@ -39,6 +39,16 @@ export async function getUser() {
   }
 }
 
+export async function fetchShipmentDetails(reference) {
+  const { data, error } = await supabase.from("shipments").select("*").eq("reference", reference).single();
+
+  if (error) {
+    return null;
+  }
+
+  return data;
+}
+
 export async function createShipment(shipmentData) {
   const {
     senderName,
@@ -55,14 +65,9 @@ export async function createShipment(shipmentData) {
     imageUrl,
     filePath,
     freight,
+    reference,
     estimatedDays,
   } = shipmentData;
-
-  function generateReference() {
-    const date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-    const random = Math.random().toString(36).substring(2, 6).toUpperCase();
-    return `REF-${date}-${random}`;
-  }
 
   function generateTrackingNumber() {
     const date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
@@ -86,13 +91,15 @@ export async function createShipment(shipmentData) {
     filePath,
     freight,
     estimatedDays,
+    reference,
     trackingNumber: generateTrackingNumber(),
-    reference: generateReference(),
   };
 
   const { data, error } = await supabase.from("shipments").insert([newShipment]).select();
 
-  if (error) throw new Error(error.message);
+  if (error) {
+    return { error: "Failed to register shipment" };
+  }
 
   return { success: true, data };
 }
@@ -167,7 +174,9 @@ export async function updateSettings({ companyEmail, companyPhone, liveChatScrip
 export async function createServiceRequest(formData) {
   const { data, error } = await supabase.from("serviceRequests").insert([formData]).select();
 
-  if (error) throw new Error("Request Failed ❌");
+  if (error) {
+    return { error: "Request Failed ❌" };
+  }
 
   return { success: true, data };
 }

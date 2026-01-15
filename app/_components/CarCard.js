@@ -53,7 +53,7 @@ function CarCard({ car, onBuyNow }) {
             onClick={() => onBuyNow(car)}
             className="w-full sm:w-auto group/btn flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-600/50 active:scale-95"
           >
-            <span className="text-sm sm:text-base">Buy A Tesla Now</span>
+            <span className="text-sm sm:text-base whitespace-nowrap">Buy Now</span>
             <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ${isHovered ? "translate-x-1" : ""}`} />
           </button>
         </div>
