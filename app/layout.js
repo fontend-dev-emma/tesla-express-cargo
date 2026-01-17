@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
-import { getLiveChatScript } from "./_lib/data-service";
+import { getAllCompanySettings, getLiveChatScript } from "./_lib/data-service";
 import ClientLayout from "./ClientLayout";
 import Providers from "./Providers";
 import AOSWrapper from "./_components/AOSWrapper";
@@ -40,7 +40,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const liveChatScript = await getLiveChatScript();
+  const allSettings = await getAllCompanySettings();
+
+  const liveChatScript = allSettings?.liveChatScript;
 
   return (
     <html lang="en">
