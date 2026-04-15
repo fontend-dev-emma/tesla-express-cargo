@@ -19,13 +19,10 @@ function AdminSendEmailForm() {
   const [message, setMessage] = useState("");
 
   const uniqueReceivers = getUniqueReceivers(allShipments);
-  console.log(uniqueReceivers);
 
   const selectedUser = uniqueReceivers?.find((u) => u.receiverEmail === selectedUserEmail);
 
   const firstnName = getFirstName(selectedUser?.receiverName);
-
-  console.log(selectedUser?.receiverEmail, subject, message);
 
   async function handleSubmit() {
     if (!selectedUser) {

@@ -11,6 +11,8 @@ async function InvoiceShipmentUpdates({ trackingNumber }) {
         {updates.map((update) => (
           <ShipmentActivity key={update.id} update={update} />
         ))}
+
+        {updates.length === 0 && <p className="text-gray-400 text-sm italic">No shipment updates available at the moment.</p>}
       </div>
     </div>
   );

@@ -8,6 +8,8 @@ import InvoiceTrackingSection from "./InvoiceTrackingSection";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 function Invoice({ trackingNumber }) {
+  const year = new Date().getFullYear();
+
   return (
     <div
       className={`max-w-6xl mx-auto bg-whiteshadow-xl shadow rounded-2xl overflow-hidden border border-gray-100 bg-[#f9f9f9] ${inter.className}`}
@@ -24,7 +26,7 @@ function Invoice({ trackingNumber }) {
       <InvoiceShipmentUpdates trackingNumber={trackingNumber} />
 
       <div className="px-6 sm:px-10 py-4 bg-gray-50 text-center text-xs sm:text-sm text-gray-400 border-t border-gray-100">
-        Generated automatically by Tesla Express Cargo System &copy; 2025
+        Generated automatically by Tesla Express Cargo System &copy; {year}
       </div>
     </div>
   );

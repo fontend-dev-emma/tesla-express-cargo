@@ -1,21 +1,40 @@
-import SibApiV3Sdk from "@sendinblue/client";
+// import SibApiV3Sdk from "@sendinblue/client";
 
-const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
+// const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
-emailApi.setApiKey(SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+// emailApi.setApiKey(SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+
+// export async function sendEmail({ to, subject, htmlContent }) {
+//   const email = new SibApiV3Sdk.SendSmtpEmail();
+//   email.sender = {
+//     email: process.env.SENDER_EMAIL,
+//     name: process.env.SENDER_NAME,
+//   };
+//   email.to = [{ email: to }];
+//   email.subject = subject;
+//   email.htmlContent = htmlContent;
+
+//   try {
+//     const response = await emailApi.sendTransacEmail(email);
+//     return response;
+//   } catch (err) {
+//     throw err;
+//   }
+// }
+
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail({ to, subject, htmlContent }) {
-  const email = new SibApiV3Sdk.SendSmtpEmail();
-  email.sender = {
-    email: process.env.SENDER_EMAIL,
-    name: process.env.SENDER_NAME,
-  };
-  email.to = [{ email: to }];
-  email.subject = subject;
-  email.htmlContent = htmlContent;
-
   try {
-    const response = await emailApi.sendTransacEmail(email);
+    const response = await resend.emails.send({
+      from: `${process.env.SENDER_NAME} <${process.env.SENDER_EMAIL}>`,
+      to,
+      subject,
+      html: htmlContent,
+    });
+
     return response;
   } catch (err) {
     throw err;

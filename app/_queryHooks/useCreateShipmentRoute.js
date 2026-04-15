@@ -17,10 +17,8 @@ export function useCreateShipmentRoute(trackingNumber) {
     },
 
     onSuccess: (res) => {
-      if (res.success) {
-        queryClient.invalidateQueries(["shipmentRoutes", trackingNumber]);
-        queryClient.invalidateQueries(["allRoutes"]);
-      }
+      queryClient.invalidateQueries(["shipmentRoutes", trackingNumber]);
+      queryClient.invalidateQueries(["allRoutes"]);
     },
 
     onError: (err) => {},
