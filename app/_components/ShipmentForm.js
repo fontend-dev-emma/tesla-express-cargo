@@ -65,7 +65,7 @@ function ShipmentForm() {
         const emailResponse = await fetch("/api/send-tracking", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ reference: reference }),
+          body: JSON.stringify({ reference }),
         });
 
         if (!emailResponse.ok) {

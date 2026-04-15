@@ -14,7 +14,7 @@ export async function POST(req) {
       return NextResponse.json({ success: false, error: "Shipment not found" }, { status: 404 });
     }
 
-    const firstName = getFirstName(shipment.receiverName);
+    const firstName = getFirstName(shipment?.receiverName);
 
     const htmlContent = `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
@@ -25,7 +25,7 @@ export async function POST(req) {
       </svg>
     </div>
     <h1 style="color: #c4dafc; font-size: 28px; font-weight: 700; margin: 0 0 10px 0; letter-spacing: -0.5px;">Shipment Created Successfully</h1>
-    <p style="color: #94a3b8; font-size: 16px; margin: 0;">Your package is now in ${shipment.status}</p>
+    <p style="color: #94a3b8; font-size: 16px; margin: 0;">Your package is now in ${shipment?.status}</p>
   </div>
 
   <div style="padding: 40px 20px;">
@@ -41,7 +41,7 @@ export async function POST(req) {
       <p style="color: #93c5fd; font-size: 14px; font-weight: 600; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 1px;">Your Tracking Number</p>
       <div style="background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 20px; margin: 0 0 16px 0;">
         <p style="color: #ffffff; font-size: 24px; font-weight: 700; margin: 0; whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" letter-spacing: 2px; font-family: 'Courier New', monospace;">${
-          shipment.trackingNumber
+          shipment?.trackingNumber
         }</p>
       </div>
       <p style="color: #dbeafe; font-size: 13px; margin: 0; line-height: 1.5;">
@@ -54,24 +54,24 @@ export async function POST(req) {
       
       <div style="margin-bottom: 16px;">
         <p style="color: #64748b; font-size: 13px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px;">Recipient</p>
-        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0;">${shipment.receiverName}</p>
+        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0;">${shipment?.receiverName}</p>
       </div>
 
       <div style="margin-bottom: 16px;">
         <p style="color: #64748b; font-size: 13px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px;">Final Destination</p>
-        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0;">${shipment.finalDestination}</p>
+        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0;">${shipment?.finalDestination}</p>
       </div>
 
       <div style="margin-bottom: 16px;">
         <p style="color: #64748b; font-size: 13px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px;">Freight Type</p>
-        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0; text-transform: capitalize;">${shipment.freight} Freight</p>
+        <p style="color: #1e293b; font-size: 15px; font-weight: 600; margin: 0; text-transform: capitalize;">${shipment?.freight} Freight</p>
       </div>
 
       <div style="margin-bottom: 0;">
         <p style="color: #64748b; font-size: 13px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px;">Status</p>
         <div style="display: inline-block;">
           <span style="background-color: #dbeafe; color: #1e40af; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 20px; text-transform: capitalize;">${
-            shipment.status
+            shipment?.status
           }</span>
         </div>
       </div>
@@ -107,7 +107,7 @@ export async function POST(req) {
     `;
 
     await sendEmail({
-      to: shipment.receiverEmail,
+      to: shipment?.receiverEmail,
       subject: "Your Tracking Number is Ready",
       htmlContent,
     });
