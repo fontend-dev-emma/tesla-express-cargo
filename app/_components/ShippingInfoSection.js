@@ -1,9 +1,9 @@
 import { Calendar, CheckCircle2, Clock, Truck } from "lucide-react";
 import InfoRow from "./InfoRow";
-import { addDays, formatDateAndTime } from "../_utils/helpers";
+import { addDays, addDaysToDate, formatDateAndTime } from "../_utils/helpers";
 
 function ShippingInfoSection({ freight, estimatedDays, createdAt }) {
-  const estimatedDelivery = addDays(createdAt, estimatedDays);
+  const estimatedDelivery = addDaysToDate(createdAt, Number(estimatedDays));
 
   const { date: createdDate, time: createdTime } = formatDateAndTime(createdAt);
   const { date: deliveryDate, time: deliveryTime } = formatDateAndTime(estimatedDelivery);
